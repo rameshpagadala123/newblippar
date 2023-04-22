@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+Archive WebAR Demo (Engineering Entrepreneurship | Engineering Innovation Institute | University of Florida)
+
+Designer/Developer: Gabriel Martins (definexperience.co)
+
+ArchiveAR.github.io | contact.archivear@gmail.com
+
+-->
+
+<html>
+<head>
+    <title>Archive WebAR Demo (Engineering Entrepreneurship | Engineering Innovation Institute | University of Florida)</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+    <script src='arjs/aframe-ar.js'></script>
+    <script>THREE/ArToolkitContext.baseURL = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.js'</script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body style='margin: 0; overflow: hidden;'>
+    <a-scene stats embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180; debugUIEnabled: false'>
+
+        <a-assets>
+            <a-asset-item id="archive-obj" src="assets/archivelogo_new.obj"></a-asset-item>
+            <a-asset-item id="archive-mtl" src="assets/archivelogo_new.mtl"></a-asset-item>
+        </a-assets>
+
+        <a-entity light="type:ambient; intensity:0.5"></a-entity>
+        <a-entity light="type:directional;castShadow:true" position="3 3 -5" rotation="0 7 -20"></a-entity>
+
+        <a-marker-camera preset='custom' url='assets/archive_marker.patt' position="0 1.5 0"></a-marker-camera>
+            <a-entity position="0 0 0" rotation="0 0 90">
+                <a-entity obj-model="obj: #archive-obj; mtl: #archive-mtl" scale="0.2 0.2 0.2" rotation="90 90 180">
+                </a-entity>
+            </a-entity>
+    </a-scene>
+</body>
+</html>
